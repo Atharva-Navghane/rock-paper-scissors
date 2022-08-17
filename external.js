@@ -1,4 +1,4 @@
-console.log("Hello Console");
+console.log("Let's play 5 rounds of rock paper scissors and see who gets the maximum wins!");
 
 function getComputerChoice()
 {
@@ -20,11 +20,12 @@ function getComputerChoice()
     return ch;
 }
 
-const playerSelection = prompt("Choose between Rock , Paper or Scissors !");
-const computerSelection = getComputerChoice();
-const cho = playerSelection.charAt(0).toUpperCase();
-console.log(cho);
-console.log(computerSelection.charAt(0));
+let playerSelection;
+let computerSelection;
+let cho;
+
+let userctr = 0;
+let compctr =0;
 
 function playRound(cho , computerSelection)
 {
@@ -33,27 +34,52 @@ function playRound(cho , computerSelection)
         if(computerSelection.charAt(0)=='R')
             return "It's a Draw, you both chose Rock!";
         else if(computerSelection.charAt(0)=='P')
-            return "You Loose!, Paper beats Rock!";
+            {compctr++;
+            return "You Loose!, Paper beats Rock!";}
         else
-            return "You Win! Rock beats Scissors!";
+            {userctr++;
+            return "You Win! Rock beats Scissors!";}
     }
     else if(cho=='P')
     {
         if(computerSelection.charAt(0)=='P')
             return "It's a Draw, you both chose Paper!";
         else if(computerSelection.charAt(0)=='R')
-            return "You Win!, Paper beats Rock!";
+            {userctr++;
+            return "You Win!, Paper beats Rock!";}
         else
-            return "You Loose! Scissors beats Paper!";
+            {compctr++;
+            return "You Loose! Scissors beats Paper!";}
     }
     else
     {
         if(computerSelection.charAt(0)=='S')
             return "It's a Draw, you both chose Scissors!";
         else if(computerSelection.charAt(0)=='R')
-            return "You Loose!, Rock beats Scissors!";
+            {compctr++;
+            return "You Loose!, Rock beats Scissors!";}
         else
-            return "You Win! Scissors beats Paper!";
+            {userctr++;
+            return "You Win! Scissors beats Paper!";}
     }
 }
-console.log(playRound(cho,computerSelection));
+
+
+function game()
+{
+    for(let i =0;i<5;i++)
+    {
+        playerSelection = prompt("Choose between Rock , Paper or Scissors !");
+        computerSelection = getComputerChoice();
+        cho = playerSelection.charAt(0).toUpperCase();
+        console.log(playRound(cho,computerSelection));
+    }
+    if(userctr>compctr)
+    {
+        console.log("Since you won "+userctr+" matches and computer won "+compctr+" matches , congratulatiuons you won the game!");
+    }
+    else
+        console.log("Since you won "+userctr+" matches and computer won "+compctr+" matches , sorry you lost the game!");
+}
+
+console.log(game());
