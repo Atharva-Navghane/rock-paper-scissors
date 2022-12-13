@@ -1,0 +1,33 @@
+body
+{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.i1
+{
+    display: flex;
+    justify-content: center;
+}
+
+.btn
+{
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    padding-bottom: 10px;
+}
+
+.text
+{
+    display: flex;
+    justify-content: center;
+    padding: 50px;
+}
+
+.text1
+{
+    display: flex;
+    justify-content: center;
+}

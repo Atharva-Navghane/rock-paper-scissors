@@ -1,4 +1,7 @@
-console.log("Let's play 5 rounds of rock paper scissors and see who gets the maximum wins!");
+let computerSelection;
+let cho;
+let userctr = 0;
+let compctr =0;
 
 function getComputerChoice()
 {
@@ -20,66 +23,155 @@ function getComputerChoice()
     return ch;
 }
 
-let playerSelection;
-let computerSelection;
-let cho;
-
-let userctr = 0;
-let compctr =0;
-
 function playRound(cho , computerSelection)
 {
     if(cho=='R')
     {
         if(computerSelection.charAt(0)=='R')
-            return "It's a Draw, you both chose Rock!";
+        {    const container = document.querySelector('body');
+            const content = document.createElement('div');
+            content.textContent = "It's a Draw, you both chose Rock!";
+            content.classList.add('text1');
+            container.appendChild(content);
+            
+        }   
         else if(computerSelection.charAt(0)=='P')
             {compctr++;
-            return "You Loose!, Paper beats Rock!";}
+            const container = document.querySelector('body');
+            const content = document.createElement('div');
+            content.textContent = "You Loose!, Paper beats Rock!";
+            content.classList.add('text1');
+            container.appendChild(content);
+            }
         else
             {userctr++;
-            return "You Win! Rock beats Scissors!";}
+            const container = document.querySelector('body');
+            const content = document.createElement('div');
+            content.textContent = "You Win! Rock beats Scissors!";
+            content.classList.add('text1');
+            container.appendChild(content);
+            }
     }
     else if(cho=='P')
     {
         if(computerSelection.charAt(0)=='P')
-            return "It's a Draw, you both chose Paper!";
+        {
+            const container = document.querySelector('body');
+            const content = document.createElement('div');
+            content.textContent = "It's a Draw, you both chose Paper!";
+            content.classList.add('text1');
+            container.appendChild(content);
+        }
         else if(computerSelection.charAt(0)=='R')
-            {userctr++;
-            return "You Win!, Paper beats Rock!";}
+        {   userctr++;
+            const container = document.querySelector('body');
+            const content = document.createElement('div');
+            content.textContent = "You Win!, Paper beats Rock!";
+            content.classList.add('text1');
+            container.appendChild(content);
+        }
         else
-            {compctr++;
-            return "You Loose! Scissors beats Paper!";}
+            {   compctr++;
+                const container = document.querySelector('body');
+                const content = document.createElement('div');
+                content.textContent = "You Loose! Scissors beats Paper!";
+                content.classList.add('text1');
+                container.appendChild(content);  
+            }
     }
     else
     {
         if(computerSelection.charAt(0)=='S')
-            return "It's a Draw, you both chose Scissors!";
+        {
+            const container = document.querySelector('body');
+            const content = document.createElement('div');
+            content.textContent = "It's a Draw, you both chose Scissors!";
+            content.classList.add('text1');
+            container.appendChild(content);      
+        }
         else if(computerSelection.charAt(0)=='R')
-            {compctr++;
-            return "You Loose!, Rock beats Scissors!";}
+        {   compctr++;
+            const container = document.querySelector('body');
+            const content = document.createElement('div');
+            content.textContent = "You Loose!, Rock beats Scissors!";
+            content.classList.add('text1');
+            container.appendChild(content);
+        }
         else
-            {userctr++;
-            return "You Win! Scissors beats Paper!";}
+        {   userctr++;
+            const container = document.querySelector('body');
+            const content = document.createElement('div');
+            content.textContent = "You Win! Scissors beats Paper!";
+            content.classList.add('text1');
+            container.appendChild(content);
+        }
     }
 }
 
-
-function game()
+function result()
 {
-    for(let i =0;i<5;i++)
+    if(userctr && compctr >0)
     {
-        playerSelection = prompt("Choose between Rock , Paper or Scissors !");
-        computerSelection = getComputerChoice();
-        cho = playerSelection.charAt(0).toUpperCase();
-        console.log(playRound(cho,computerSelection));
+        if(userctr > compctr)
+        {
+            const container = document.querySelector('body');
+            const content = document.createElement('div');
+            content.textContent = "You beat the computer in the game of 5, Congrats!";
+            content.classList.add('text');
+            container.appendChild(content);
+        }
+        else if(userctr < compctr)
+        {
+            const container = document.querySelector('body');
+            const content = document.createElement('div');
+            content.textContent = "Sorry the computer beat you in the game of 5";
+            content.classList.add('text');
+            container.appendChild(content);
+        }
+        else
+        {
+            const container = document.querySelector('body');
+            const content = document.createElement('div');
+            content.textContent = "It's a draw between you and the computer in this game of 5";
+            content.classList.add('text');
+            container.appendChild(content);
+        }
     }
-    if(userctr>compctr)
-    {
-        console.log("Since you won "+userctr+" matches and computer won "+compctr+" matches , congratulatiuons you won the game!");
-    }
-    else
-        console.log("Since you won "+userctr+" matches and computer won "+compctr+" matches , sorry you lost the game!");
 }
 
-console.log(game());
+function evaluate()
+{
+    counter++;
+        if(counter <= 5)
+        {
+            computerSelection = getComputerChoice();
+            playRound(cho,computerSelection);
+        }
+        if(counter == 5)
+            result();
+}
+
+let counter = 0;
+const btn1 = document.querySelector('.b1');
+btn1.addEventListener('click',() =>
+    {
+        cho = 'R';
+        evaluate();
+    });
+
+const btn2 = document.querySelector('.b2');
+btn2.addEventListener('click',() =>
+    {
+        cho = 'P';
+        evaluate();
+    });
+
+const btn3 = document.querySelector('.b3');
+btn3.addEventListener('click',() =>
+    {
+        cho = 'S';
+        evaluate();
+    });
+
+
+    
