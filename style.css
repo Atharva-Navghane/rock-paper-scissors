@@ -3,6 +3,7 @@ body
     display: flex;
     justify-content: center;
     flex-direction: column;
+    background-color: lightyellow;
 }
 
 .i1
@@ -23,11 +24,53 @@ body
 {
     display: flex;
     justify-content: center;
-    padding: 50px;
+    padding: 20px;
 }
 
 .text1
 {
     display: flex;
     justify-content: center;
+}
+
+button
+{
+    border-radius: 25px;
+}
+
+button:hover
+{
+    background-color: darkblue;
+    color: white;
+}
+
+.scr
+{
+    display: flex;
+    justify-content: center;
+}
+
+.computer
+{
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.user
+{
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    
+}
+
+.pt1
+{
+    padding-left: 115px;
+}
+
+.pt2
+{
+    padding-left: 50px;
 }

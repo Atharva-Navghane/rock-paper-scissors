@@ -42,6 +42,8 @@ function playRound(cho , computerSelection)
             content.textContent = "You Loose!, Paper beats Rock!";
             content.classList.add('text1');
             container.appendChild(content);
+
+            updateComp();
             }
         else
             {userctr++;
@@ -50,6 +52,8 @@ function playRound(cho , computerSelection)
             content.textContent = "You Win! Rock beats Scissors!";
             content.classList.add('text1');
             container.appendChild(content);
+
+            updateUser();
             }
     }
     else if(cho=='P')
@@ -69,6 +73,8 @@ function playRound(cho , computerSelection)
             content.textContent = "You Win!, Paper beats Rock!";
             content.classList.add('text1');
             container.appendChild(content);
+
+            updateUser();
         }
         else
             {   compctr++;
@@ -77,6 +83,8 @@ function playRound(cho , computerSelection)
                 content.textContent = "You Loose! Scissors beats Paper!";
                 content.classList.add('text1');
                 container.appendChild(content);  
+
+                updateComp();
             }
     }
     else
@@ -96,6 +104,8 @@ function playRound(cho , computerSelection)
             content.textContent = "You Loose!, Rock beats Scissors!";
             content.classList.add('text1');
             container.appendChild(content);
+
+            updateComp();
         }
         else
         {   userctr++;
@@ -104,6 +114,8 @@ function playRound(cho , computerSelection)
             content.textContent = "You Win! Scissors beats Paper!";
             content.classList.add('text1');
             container.appendChild(content);
+
+            updateUser();
         }
     }
 }
@@ -117,6 +129,7 @@ function result()
             const container = document.querySelector('body');
             const content = document.createElement('div');
             content.textContent = "You beat the computer in the game of 5, Congrats!";
+            content.setAttribute('style', 'color : rgb(0, 255, 0); font-weight: 800;');
             content.classList.add('text');
             container.appendChild(content);
         }
@@ -124,7 +137,8 @@ function result()
         {
             const container = document.querySelector('body');
             const content = document.createElement('div');
-            content.textContent = "Sorry the computer beat you in the game of 5";
+            content.textContent = "Sorry the computer beat you in the game of 5.";
+            content.setAttribute('style', 'color : rgb(255, 0, 0); font-weight: 800;');
             content.classList.add('text');
             container.appendChild(content);
         }
@@ -132,7 +146,7 @@ function result()
         {
             const container = document.querySelector('body');
             const content = document.createElement('div');
-            content.textContent = "It's a draw between you and the computer in this game of 5";
+            content.textContent = "It's a draw between you and the computer in this game of 5.";
             content.classList.add('text');
             container.appendChild(content);
         }
@@ -149,6 +163,34 @@ function evaluate()
         }
         if(counter == 5)
             result();
+}
+
+function updateUser()
+{
+    const parent = document.querySelector('.user');
+    const childrem = document.querySelector('.pt1');
+
+    const childadd = document.createElement('div');
+    childadd.classList.add('pt1');
+    const heading = document.createElement('h1');
+    heading.textContent = userctr;
+    childadd.appendChild(heading);
+    parent.removeChild(childrem);
+    parent.appendChild(childadd);
+}
+
+function updateComp()
+{
+    const parent = document.querySelector('.computer');
+    const childrem = document.querySelector('.pt2');
+
+    const childadd = document.createElement('div');
+    childadd.classList.add('pt2');
+    const heading = document.createElement('h1');
+    heading.textContent = compctr;
+    childadd.appendChild(heading);
+    parent.removeChild(childrem);
+    parent.appendChild(childadd);
 }
 
 let counter = 0;
